@@ -21,15 +21,15 @@ module.exports = function validateRegisterInput(data) {
     errors.email = "Email field is required";
   }
 
-  if (Validator.isEmail(data.email)) {
-    errors.email = "Email is valid";
+  if (!Validator.isEmail(data.email)) {
+    errors.email = "Email is not valid";
   }
 
   if (Validator.isEmpty(data.password)) {
     errors.password = "Password field is required";
   }
 
-  if (Validator.isLength(data.password, { min: 6, max: 30 })) {
+  if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
     errors.password = "Password must be between 6 and 30 characters";
   }
 
@@ -37,7 +37,7 @@ module.exports = function validateRegisterInput(data) {
     errors.password2 = "Confirm password field is required";
   }
 
-  if (Validator.equals(data.password, data.password2)) {
+  if (!Validator.equals(data.password, data.password2)) {
     errors.password2 = "Passwords must match";
   }
 
