@@ -91,8 +91,7 @@ class EditProfile extends Component {
   componentDidMount() {
     this.props.getCurrentProfile();
   }
-  handle;
-  handle;
+
   onSubmit(e) {
     e.preventDefault();
 
